@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/master-layout}">
+<head>
+<title></title>
+</head>
+<body>
+	<th:block layout:fragment="content">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>List of All Registered Customers</h1>				
+	           	<a class="btn btn-success float-right" href="/bank/customer/new">Register a New Customer</a>	 
+			</div>
+			<p>&nbsp;</p>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Customer number</th>
+						<th>First name</th>
+						<th>Middle name</th>
+						<th>Last name</th>
+						<th>Email</th>
+						<th>Contact phone number</th>
+						<th>DOB</th>
+					</tr>
+				</thead>
+				 <tbody>
+				  	<tr th:each="obj, iterStat : ${customers}">
+						<td scope = "row" th:text = "${iterStat.count}"></td>
+						<td scope = "row" th:text = "${obj.customerNumber}"></td>
+						<td scope = "row" th:text = "${obj.firstName}"></td>
+						<td scope = "row" th:text = "${obj.middleName}"></td>
+						<td scope = "row" th:text = "${obj.lastName}"></td>
+						<td scope = "row" th:text = "${obj.emailAddress}"></td>
+						<td scope = "row" th:text = "${obj.contactPhoneNumber}"></td>
+						<td scope = "row" th:text = "${obj.dob}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</th:block>
+</body>
+</html>

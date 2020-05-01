@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;edu.miu.cs.cs425.demos.lab10.service&apos; to &apos;grocery/src/main/java&apos;&#x0A;- Original project: &apos;elibrary-crud&apos;&#x0A;- Destination element: &apos;grocery/src/main/java&apos;&#x0A;- Original element: &apos;elibrary-crud/src/main/java/edu.miu.cs.cs425.demos.lab10.service&apos;" description="Copy package" destination="=grocery/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;edu.miu.cs.cs425.demos.lab10.service" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1583866628144" version="1.0"/>
+</session>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/master-layout}">
+<head>
+<title>E-Student Registration</title>
+</head>
+<body>
+	<th:block layout:fragment="content">
+		<h1>New Account Form</h1>
+		<form method="post" action = "/bank/account/new" th:object = "${account}">
+			<fieldset>
+				<div class="row">
+					<div class="col-md-12">
+						<label for="customer">Customer</label>
+						<select name="customer" class="form-control">
+							<option>Select Customer</option>
+							<option th:each="cus:${customers}" th:value="${cus.customerId}" 
+								th:text="${cus.customerNumber} + '-' + ${cus.firstName} +' '+ ${cus.middleName}+ ' '+ ${cus.lastName}"></option>
+						</select>
+						<span th:if="${#fields.hasErrors('customer')}" th:errors="*{customer}"
+                                  class="error"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<label for="accountNumber">Account Number</label>
+						<input name="accountNumber" class="form-control" type="text">
+						<span th:if="${#fields.hasErrors('accountNumber')}" th:errors="*{accountNumber}"
+                                  class="error"></span>							
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<label for="accounttype">Type of Account</label>
+						<select name="accounttype" class="form-control">
+							<option>Type of account</option>
+							<option th:each="obj:${typeofaccounts}" th:value="${obj.accounttypeId}" 
+								th:text="${obj.accountTypeName}"></option>
+						</select>
+						<span th:if="${#fields.hasErrors('customer')}" th:errors="*{customer}"
+                                  class="error"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<label for="balance">Balance</label>
+						<input name="balance" class="form-control" type="text">
+						<span th:if="${#fields.hasErrors('balance')}" th:errors="*{balance}"
+                                  class="error"></span>							
+					</div>
+				</div>
+				<div class="row" style="margin-top:20px;">
+					<div class="col-md-12">
+						<a href="/bank/account/new" class="btn btn-info">Reset</a>
+						<a href="/bank/account/list" class="btn btn-warning">Cancel</a>
+						<button type="submit" class="btn btn-success">Create Account</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</th:block>
+</body>
+</html>

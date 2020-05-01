@@ -1,0 +1,55 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/master-layout}">
+<head>
+<title>E-Customer Registration</title>
+</head>
+<body>
+	<th:block layout:fragment="content">
+		<h2>Product List</h2>
+		<br />
+		<a href="/midwesten/secured/customer/new">Create a customer</a>
+		<a href="/" id="linkBackHome">Back to home</a>
+		<br />
+		<br />
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>customer ID</th>
+					<th>customer Number</th>
+					<th>First Name</th>
+					<th>Middle Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Contact Number</th>
+					<th>Date of Birth </th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="customer : ${customers}">
+					<td th:text="${customer.customerId}"></td>
+					<td th:text="${customer.customerNumber}"></td>
+					<td th:text="${customer.firstNname}"></td>
+					<td th:text="${customer.middleNname}"></td>
+					<td th:text="${customer.lastNname}"></td>
+					<td th:text="${customer.email}"></td>
+					<td th:text="${customer.contactPhoneNumber}"></td>
+					<td th:text="${customer.dateOfBirth}"></td>
+
+					<td><a
+						th:href="@{'/srm/secured/customer/edit/' + ${customer.customerId}}">Edit</a>&nbsp;
+						<a
+						th:href="@{'/srm/secured/customer/delete/' + ${customer.customerId}}">Delete</a>
+					</td>
+				</tr>
+				<tr th:if="${customers.size() <1}">
+					<td colspan="12" style="text-align: center" >No customer
+						available</td>
+				</tr>
+			</tbody>
+		</table>
+	</th:block>
+</body>
+</html>

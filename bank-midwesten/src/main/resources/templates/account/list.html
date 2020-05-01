@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/master-layout}">
+<head>
+<title></title>
+</head>
+<body>
+	<th:block layout:fragment="content">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>List of All Accounts</h1>				
+	           	<a class="btn btn-success float-right" href="/bank/account/new">Open a New Accounts</a>	 
+			</div>
+			<p>&nbsp;</p>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Account number</th>
+						<th>Customer</th>
+						<th>Type of Account</th>
+						<th>Balance</th>
+					</tr>
+				</thead>
+				 <tbody>
+				  	<tr th:each="obj, iterStat : ${accounts}">
+						<td scope = "row" th:text = "${iterStat.count}"></td>
+						<td scope = "row" th:text = "${obj.accountNumber}"></td>
+						<td scope = "row" th:text = "${obj.customer.customerNumber}+ '-' + ${obj.customer.firstName} +' '+ ${obj.customer.middleName}+ ' '+ ${obj.customer.lastName}"></td>
+						<td scope = "row" th:text = "${obj.accounttype.accountTypeName}"></td>
+						<td scope = "row" th:text = "${#numbers.formatCurrency(obj.balance)}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</th:block>
+</body>
+</html>

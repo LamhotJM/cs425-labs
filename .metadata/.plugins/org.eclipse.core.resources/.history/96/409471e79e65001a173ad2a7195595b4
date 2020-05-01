@@ -1,0 +1,52 @@
+package edu.mum.cs.cs425.lab10;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertArrayEquals;
+
+import junit.framework.TestCase;
+
+public class MockitoArrayReversorTest extends TestCase {
+	private ArrayReversor arrayReversor;
+	private IArrayReversor interfaceMock = mock(IArrayReversor.class);
+
+	protected void setUp() throws Exception {
+		this.arrayReversor = new ArrayReversor(interfaceMock);
+
+	}
+
+	protected void tearDown() throws Exception {
+		this.arrayReversor = null;
+
+	}
+
+	@Test
+	public final void testReverseArray() {
+		Integer[][] inputArray = new Integer[][] { { 1, 3 }, { 0 }, { 4, 5, 9 } };
+
+		when(interfaceMock.flattenArray(inputArray)).thenReturn(new Integer[] { 1, 3, 0, 4, 5, 9 });
+
+		Integer[] actual = arrayReversor.reverseArray(inputArray);
+		Integer[] expected = new Integer[] { 9, 5, 4, 0, 3, 1 };
+		assertArrayEquals(expected, actual);
+		verify(interfaceMock).flattenArray(inputArray);
+	}
+	
+	@Test
+    public void testReverseArrayNull() {
+    	
+        Integer[][] inputArray = null;
+        
+        when(interfaceMock.flattenArray(inputArray)).thenReturn(null);
+     
+        Integer[] actual = arrayReversor.reverseArray(inputArray);
+        Integer[] expected = null;
+        assertArrayEquals(expected, actual);
+        verify(interfaceMock).flattenArray(inputArray);
+    }
+
+}

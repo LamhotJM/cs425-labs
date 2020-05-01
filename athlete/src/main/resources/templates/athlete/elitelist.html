@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Supplier list</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+</head>
+<body>
+	<!-- Navigation -->
+	<div th:replace="~{/home/index :: navigation}"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>List of Elite Athletes</h1>				
+	           	<a class="btn btn-success float-right" href="/adidasler/athlete/new">Register a New Athlete</a>	 
+			</div>
+			<p>&nbsp;</p>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>SSN</th>
+						<th>Full Name</th>
+						<th>Phone</th>
+						<th>Date of Birth</th>
+						<th>Date of Registration</th>
+						<th>Medals Won</th>
+						<th>Salary</th>
+						<th>Email</th>
+					</tr>
+				</thead>
+				 <tbody>
+				  	<tr th:each="obj, iterStat : ${athletes}">
+						<td scope = "row" th:text = "${iterStat.count}"></td>
+						<td scope = "row" th:text = "${obj.ssn}"></td>
+						<td scope = "row" th:text = "${obj.fullName}"></td>
+						<td scope = "row" th:text = "${obj.phoneNumber}"></td>
+						<td scope = "row" th:text = "${obj.dateOfBirth}"></td>
+						<td scope = "row" th:text = "${obj.dateOfRegistration}"></td>
+						<td scope = "row" th:text = "${obj.totalNumberOfMedalsWon}"></td>
+						<td scope = "row" th:text = "${#numbers.formatCurrency(obj.monthlySalary)}"></td>
+						<td scope = "row" th:text = "${obj.emailAddress}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<footer style="background:#eee; padding:15px 0" th:fragment="footer1">
+		<div class="container">
+			CS425 - solution by Lamhot <span class="float-right">March 2020</span>
+		</div>
+	</footer>	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

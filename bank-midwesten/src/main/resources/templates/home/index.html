@@ -1,0 +1,23 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/master-layout}">
+<head>
+<title>Midwesten Bank</title>
+</head>
+<body>
+	<th:block layout:fragment="content">
+		<h3>Welcome Midwesten Bank</h3>
+		<hr />
+		<th:block style="font-size: 1em">
+            To browse and manage the <a href="/bank/customer/list">Customer
+				List</a>
+		</th:block>
+		<hr />
+		<th:block style="font-size: 1em">
+            To browse and manage the <a
+				href="/bank/account/list">Account List</a>
+		</th:block>
+	</th:block>
+</body>
+</html>

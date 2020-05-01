@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/master-layout}">
+<head>
+<title>E-Student Registration</title>
+</head>
+<body>
+	<th:block layout:fragment="content">
+		<h1>New Product Form</h1>
+
+		<form id="newcustomerForm" method="post"
+			action="/midwesten/secured/customer/new" th:object="${customer}">
+			<fieldset>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="customerId">product ID</label> <span></span> <input
+								id="customerId" name="customerId" type="text" class="form-control"
+								th:value="${customer.customerId}" readonly>
+						</div>
+					</div>
+					
+				</div>
+				
+
+				<div style="float: right;">
+					<a href="/midwesten/secured/customer/list" class="btn btn-outline-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
+					<button id="btnSubmit" type="submit"
+						class="btn btn-outline-success">Save customer</button>
+				</div>
+			</fieldset>
+		</form>
+	</th:block>
+
+</body>
+</html>

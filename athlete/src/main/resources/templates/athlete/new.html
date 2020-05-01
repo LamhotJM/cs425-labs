@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register new Athlete</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+</head>
+<body>
+	<!-- Navigation -->
+	<div th:replace="~{/home/index :: navigation}"></div>
+	<div class="container">
+		<h1>New Athlete Registration Form</h1>
+		<form method="post" action = "/adidasler/athlete/new" th:object = "${athlete}">
+			<fieldset>
+				<div class="row">
+					<div class="col-md-6">
+						<label for = "ssn">Social Security Number</label>
+						<input name = "ssn" type="text" class="form-control" th:value="${athlete.ssn}">
+						<span th:if="${#fields.hasErrors('ssn')}" th:errors="*{ssn}"
+                                  class="error"></span>
+					</div>
+					<div class="col-md-6">
+						<label for = "phoneNumber">Phone Number</label>
+						<input name = "phoneNumber" type="text" class="form-control" th:value="${athlete.phoneNumber}">
+						<span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"
+                                  class="error"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label for = "fullName">Full name</label>
+						<input name = "fullName" type="text" class="form-control" th:value="${athlete.fullName}">
+						<span th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"
+                                  class="error"></span>
+					</div>
+					<div class="col-md-6">
+						<label for = "emailAddress">Email Address</label>
+						<input name = "emailAddress" type="text" class="form-control" th:value="${athlete.emailAddress}">
+						<span th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}"
+                                  class="error"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label for = "dateOfBirth">Date of birth</label>						
+						<input name = "dateOfBirth" type="text" class="form-control" placeholder="yyyy-mm-dd"  th:value="${athlete.dateOfBirth}">
+						<span th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"
+                                  class="error"></span>
+					</div>
+					<div class="col-md-6">
+						<label for = "dateOfRegistration">Date of registration</label>						
+						<input name = "dateOfRegistration" type="text" class="form-control" placeholder="yyyy-mm-dd"  th:value="${athlete.dateOfRegistration}">
+						<span th:if="${#fields.hasErrors('dateOfRegistration')}" th:errors="*{dateOfRegistration}"
+                                  class="error"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label for = "totalNumberOfMedalsWon">Number of medals won</label>						
+						<input name = "totalNumberOfMedalsWon" type="text" class="form-control" th:value="${athlete.totalNumberOfMedalsWon}">
+						<span th:if="${#fields.hasErrors('totalNumberOfMedalsWon')}" th:errors="*{totalNumberOfMedalsWon}"
+                                  class="error"></span>
+					</div>
+					<div class="col-md-6">					
+                        <label for = "monthlySalary">Monthly salary</label>						
+						<input name = "monthlySalary" type="text" class="form-control" th:value="${athlete.monthlySalary}">
+						<span th:if="${#fields.hasErrors('monthlySalary')}" th:errors="*{monthlySalary}"
+                                  class="error"></span>
+                    </div>
+				</div>
+				
+				<div class="row" style="margin-top:20px;">
+					<div class="col-md-12">
+						<a href="/adidasler/athlete/new" class="btn btn-info">Reset</a>
+						<a href="/adidasler/athlete/list" class="btn btn-warning">Cancel</a>
+						<button type="submit" class="btn btn-success">Register Athlete</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+		<footer style="background:#eee; padding:15px 0" th:fragment="footer1">
+		<div class="container">
+			CS425 - solution by Lamhot <span class="float-right">March 2020 </span>
+		</div>
+	</footer>	
+</body>
+</html>

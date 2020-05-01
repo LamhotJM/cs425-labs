@@ -1,0 +1,108 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Citizen lists</title>
+</head>
+<body>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Adidasler Prolethics::: eTalent Data Manager(eTDM)</a>
+        <li class="breadcrumb-item"><a href="/apm/athlete/list">Athletes</a></li>
+        <li class="breadcrumb-item"><a href="/apm/athlete/elite">Elite Athletes</a></li>
+
+    </ol>
+</nav>
+
+<div class="container">
+
+    <div>
+        <span style="font-size: 2em; color: #32a5e7;">Elite Athletes</span>
+
+    </div>
+
+
+    <!-- Content here -->
+
+    <div style="font-size: 1em">
+        <table class="table table-hover">
+            <thead class="thead-primary">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Social Security Number</th>
+                <th scope="col">FullName</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Date of Registration</th>
+                <th scope="col">Total Number of Medals Won</th>
+                <th scope="col">Monthly Salary</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="a,iterStat : ${eliteAthleteList}">
+                <!--th:onclick="@{document.location='/goldendome/product/edit/{productId}'(productId=${product.productId})}" >-->
+                <th scope="row" th:text="${iterStat.count}"></th>
+                <td th:text="${a.athleteId}" hidden>&nbsp;</td>
+                <td th:text="${a.ssn}">&nbsp;</td>
+                <td th:text="${a.fullName}">&nbsp;</td>
+                <td th:text="${a.phoneNumber}">&nbsp;</td>
+                <td th:text="${a.dateOfBirth}">&nbsp;</td>
+                <td th:text="${a.dateOfRegistration}">&nbsp;</td>
+                <td th:text="${a.totalNumberOfMedalsWon}">&nbsp;</td>
+                <td th:text="${#numbers.formatCurrency(a.monthlySalary)}">&nbsp;</td>
+                <td th:text="${a.emailAddress}">&nbsp;</td>
+
+            </tr>
+            </tbody>
+        </table>
+
+        <!--<div>-->
+        <!--<b>-->
+        <!--Net Liquidity:-->
+        <!--</b>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<div th:text="${#numbers.formatCurrency(net)}"></div>&ndash;&gt;-->
+        <!---->
+
+        <!--<div style="font-size: 1em">-->
+        <!--<table class="table table-striped">-->
+        <!--<tbody>-->
+        <!--<td th:text="${netBal}"></td>-->
+        <!--</tbody>-->
+        <!--</table>-->
+        <!--</div>-->
+
+
+    </div>
+
+
+
+
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">Purevdemberel Byambatogtokh : : : CS425-SWE</span>
+        <span style="float:right;" class="text-muted">&copy; October 2019</span>
+    </div>
+</footer>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
